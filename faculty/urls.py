@@ -1,0 +1,42 @@
+from django.urls import path
+from . import views
+
+app_name = 'faculty'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('teachers/', views.teacher_list, name='teacher_list'),
+    path('teacher-details/<int:teacher_id>/', views.teacher_details, name='teacher_details'),
+    path('add-teacher/', views.add_teacher, name='add_teacher'),
+    path('edit-teacher/<int:teacher_id>/', views.edit_teacher, name='edit_teacher'),
+    path('delete-teacher/<int:teacher_id>/', views.delete_teacher, name='delete_teacher'),
+    path('departments/', views.department_list, name='department_list'),
+    path('add-department/', views.add_department, name='add_department'),
+    path('edit-department/<int:department_id>/', views.edit_department, name='edit_department'),
+    path('delete-department/<int:department_id>/', views.delete_department, name='delete_department'),
+    path('subjects/', views.subject_list, name='subject_list'),
+    path('add-subject/', views.add_subject, name='add_subject'),
+    path('edit-subject/<int:subject_id>/', views.edit_subject, name='edit_subject'),
+    path('delete-subject/<int:subject_id>/', views.delete_subject, name='delete_subject'),
+    path('fees/', views.fees_list, name='fees_list'),
+    path('fees-collections/', views.fees_collection_list, name='fees_collection_list'),
+    path('add-fees-collection/', views.add_fees_collection, name='add_fees_collection'),
+    path('expenses/', views.expenses_list, name='expenses_list'),
+    path('add-expenses/', views.add_expenses, name='add_expenses'),
+    path('salary/', views.salary_list, name='salary_list'),
+    path('add-salary/', views.add_salary, name='add_salary'),
+    path('holiday/', views.holiday_list, name='holiday_list'),
+    path('exam/', views.exam_list, name='exam_list'),
+    path('event/', views.event_list, name='event_list'),
+    path('time-table/', views.time_table_list, name='time_table_list'),
+    path('library/', views.library_list, name='library_list'),
+    path('sports/', views.sports_list, name='sports_list'),
+    path('hostel/', views.hostel_list, name='hostel_list'),
+    path('transport/', views.transport_list, name='transport_list'),
+    path('components/', views.components_list, name='components_list'),
+    path('login/', views.login_page, name='login_page'),
+    path('register/', views.register_page, name='register_page'),
+    path('forgot-password/', views.forgot_password_page, name='forgot_password_page'),
+    path('error-404/', views.error_404, name='error_404'),
+]
