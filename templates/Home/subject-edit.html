@@ -1,0 +1,69 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Edit Subject</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'faculty:subject_list' %}">Subjects</a></li>
+                        <li class="breadcrumb-item active">Edit Subject</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>Subject Code</label>
+                                <input type="text" class="form-control" name="code" value="{{ subject.code }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject Name</label>
+                                <input type="text" class="form-control" name="name" value="{{ subject.name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" name="description" rows="3">{{ subject.description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select class="form-control" name="department" required>
+                                    <option value="">Select Department</option>
+                                    {% for dept in departments %}
+                                        <option value="{{ dept.id }}" {% if dept.id == subject.department.id %}selected{% endif %}>{{ dept.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Teacher (Optional)</label>
+                                <select class="form-control" name="teacher">
+                                    <option value="">Select Teacher</option>
+                                    {% for teacher in teachers %}
+                                        <option value="{{ teacher.id }}" {% if teacher.id == subject.teacher.id %}selected{% endif %}>{{ teacher.first_name }} {{ teacher.last_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Credits</label>
+                                <input type="number" class="form-control" name="credits" value="{{ subject.credits }}" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Semester</label>
+                                <input type="text" class="form-control" name="semester" value="{{ subject.semester }}" placeholder="e.g., 1st, 2nd">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Subject</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

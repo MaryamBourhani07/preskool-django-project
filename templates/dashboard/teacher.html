@@ -1,0 +1,150 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="page-wrapper">
+<div class="content container-fluid">
+
+<div class="page-header">
+<div class="row">
+<div class="col-sm-12">
+<h3 class="page-title">Welcome {{ user.first_name }} {{ user.last_name }}!</h3>
+<ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="{% url 'authentication:teacher_dashboard' %}">Dashboard</a></li>
+<li class="breadcrumb-item active">Teacher Dashboard</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xl-3 col-sm-6 col-12 d-flex">
+<div class="card bg-nine w-100">
+<div class="card-body">
+<div class="db-widgets d-flex justify-content-between align-items-center">
+<div class="db-icon">
+<i class="fas fa-users"></i>
+</div>
+<div class="db-info">
+<h3>{{ total_students|default:0 }}</h3>
+<h6>My Students</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-sm-6 col-12 d-flex">
+<div class="card bg-six w-100">
+<div class="card-body">
+<div class="db-widgets d-flex justify-content-between align-items-center">
+<div class="db-icon">
+<i class="fas fa-book"></i>
+</div>
+<div class="db-info">
+<h3>{{ total_subjects|default:0 }}</h3>
+<h6>My Subjects</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-sm-6 col-12 d-flex">
+<div class="card bg-eleven w-100">
+<div class="card-body">
+<div class="db-widgets d-flex justify-content-between align-items-center">
+<div class="db-icon">
+<i class="fas fa-calendar-check"></i>
+</div>
+<div class="db-info">
+<h3>{{ total_exams|default:0 }}</h3>
+<h6>My Exams</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-sm-6 col-12 d-flex">
+<div class="card bg-ten w-100">
+<div class="card-body">
+<div class="db-widgets d-flex justify-content-between align-items-center">
+<div class="db-icon">
+<i class="fas fa-clock"></i>
+</div>
+<div class="db-info">
+<h3>{{ total_timetable|default:0 }}</h3>
+<h6>Today's Classes</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-12 col-lg-12 col-xl-8">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title">Recent Activities</h5>
+</div>
+<div class="card-body">
+<div class="activity">
+<div class="activity-box">
+<ul class="activity-list">
+<li>
+<div class="activity-user">
+<a href="#" title="" data-toggle="tooltip" class="avatar">
+<img alt="" src="{% static 'assets/img/profiles/avatar-01.jpg' %}" class="img-fluid rounded-circle">
+</a>
+</div>
+<div class="activity-content">
+<div class="timeline-content">
+<a href="#" class="name">Vincent</a> added new task <a href="#" class="text-black">Patient appointment booking</a>
+<span class="time">4 mins ago</span>
+</div>
+</div>
+</li>
+<li>
+<div class="activity-user">
+<a href="#" title="" data-toggle="tooltip" class="avatar">
+<img alt="" src="{% static 'assets/img/profiles/avatar-02.jpg' %}" class="img-fluid rounded-circle">
+</a>
+</div>
+<div class="activity-content">
+<div class="timeline-content">
+<a href="#" class="name">Roz Flowers</a> attended a meeting with <a href="#" class="text-black">Loren Gatlin</a>
+<span class="time">6 mins ago</span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-12 col-lg-12 col-xl-4 d-flex">
+<div class="card flex-fill">
+<div class="card-header">
+<h5 class="card-title">Teaching Schedule</h5>
+</div>
+<div class="card-body">
+<div class="leave-info">
+<div class="up-leave">
+<h4>12</h4>
+<h6>Upcoming Classes</h6>
+</div>
+<div class="recent-leave">
+<h4>05</h4>
+<h6>Today's Classes</h6>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+{% endblock %}
