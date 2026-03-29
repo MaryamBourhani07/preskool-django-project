@@ -1,16 +1,20 @@
-Preskool - Gestion de Maternelle
+ 
 
 
-Prérequis
-Python 3.11.5
-pip
+#Prérequis
+
+Python 3.11.5 ,
+
+pip,
+
 virtualenv(recommandé)
 
 #Instructions d'installation
 
 1-Cloner le dépôt:
 
-git clone https://github.com/MaryamBourhani07/preskool-django-project.git
+git clone https://github.com/MaryamBourhani07/preskool-django-project.git 
+
 2-Créer et activer l'environnement virtuel:
 
 python -m venv env
@@ -27,7 +31,10 @@ py manage.py migrate
 5-Lancer le serveur:
 
 py manage.py runserver
+
+
 Lapplication sera accessible sur : http://127.0.0.1:8000
+
 
 #Identifiants de test:
       
