@@ -26,5 +26,8 @@ urlpatterns = [
     path('', home_redirect, name='home'),
     path('students/', include('student.urls')),
     path('authentication/', include('home_auth.urls')),
+    path('holidays/', include('holiday.urls')),
+    path('exams/', include('exam.urls')),
+    path('timetable/', include('timetable.urls')),
     path('', include('faculty.urls')),
 ]
