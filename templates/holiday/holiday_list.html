@@ -1,0 +1,56 @@
+{% extends 'base_main.html' %}
+
+{% block page_title %}Holidays{% endblock %}
+{% block breadcrumb %}Holiday List{% endblock %}
+
+{% block header_buttons %}
+<a href="{% url 'holiday:holiday_create' %}" class="btn btn-primary btn-rounded float-right"><i class="fas fa-plus"></i> Add Holiday</a>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-center mb-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Holiday Name</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for holiday in holidays %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ holiday.title }}</td>
+                                <td>{{ holiday.date }}</td>
+                                <td>{{ holiday.description }}</td>
+                                <td class="text-right">
+                                    <div class="actions">
+                                        <a href="{% url 'holiday:holiday_update' holiday.pk %}" class="btn btn-sm bg-success-light mr-2">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <a href="{% url 'holiday:holiday_delete' holiday.pk %}" class="btn btn-sm bg-danger-light">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center">No holidays found.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base_main.html' %}
+
+{% block page_title %}Delete Exam{% endblock %}
+{% block breadcrumb %}Delete Exam{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <p>Are you sure you want to delete the exam record for {{ exam.student }} in {{ exam.subject }}?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    <a href="{% url 'exam:exam_list' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
