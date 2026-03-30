@@ -1,0 +1,41 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">{% block page_title %}{% endblock %}</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'faculty:index' %}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">{% block breadcrumb %}{% endblock %}</li>
+                    </ul>
+                </div>
+                <div class="col-auto float-right ml-auto">
+                    {% block header_buttons %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        {% if messages %}
+        <div class="row">
+            <div class="col-sm-12">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}
