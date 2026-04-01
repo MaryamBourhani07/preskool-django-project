@@ -46,3 +46,5 @@ Teatcher: email : samira@datacenter.com et password: samira@
  
 #Lien vidéo:
 
+https://github.com/MaryamBourhani07/preskool-django-project/blob/main/project%20python.mp4
+
